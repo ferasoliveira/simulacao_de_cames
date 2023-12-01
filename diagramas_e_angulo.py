@@ -2,8 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
+# Valor de Beta
 beta = np.pi / 3
+
+# Valor da Altura máxima (em mm)
 h = 8
+
+# Valor do Raio da base (em mm)
+rb = 16
 
 
 def desloc_23(theta1):
@@ -140,22 +146,17 @@ def aceler_4567(theta1):
 
 
 def ang_23(theta1):
-    if 0 <= theta1 <= beta:
-        x = math.atan(veloc_23(theta1) / (desloc_23(theta1) + 16))
-    elif beta < theta1 <= (2 * beta):
-        x = math.atan(veloc_23(theta1) / (desloc_23(theta1) + 16))
-    else:
-        x = math.atan(veloc_23(theta1) / (desloc_23(theta1) + 16))
+    x = math.atan(veloc_23(theta1) / (desloc_23(theta1) + rb))
     return x
 
 
 def ang_345(theta1):
-    x = math.atan(veloc_345(theta1) / (desloc_345(theta1) + 16))
+    x = math.atan(veloc_345(theta1) / (desloc_345(theta1) + rb))
     return x
 
 
 def ang_4567(theta1):
-    x = math.atan(veloc_4567(theta1) / (desloc_4567(theta1) + 16))
+    x = math.atan(veloc_4567(theta1) / (desloc_4567(theta1) + rb))
     return x
 
 
